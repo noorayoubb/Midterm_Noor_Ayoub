@@ -77,5 +77,20 @@ for j in range(len(random_numbers)):
 
 print(random_numbers)
 
+def days_passed_since_birthday(birthday):
+    day, month, year = map(int, birthday.split('-'))
+    current_year = 2024
+    days_passed_in_birth_year = 31 - 19
+    days_passed_in_between_years = 0
+    for y in range(year + 1, current_year):
+        if y % 4 == 0 and (y % 100 != 0 or y % 400 == 0):
+            days_passed_in_between_years += 366  # Leap year
+        else:
+            days_passed_in_between_years += 365  # Non-leap year
+    total_days_passed = days_passed_in_birth_year + days_passed_in_between_years
+    return total_days_passed
+
+
+
 
 
